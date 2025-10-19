@@ -3,15 +3,19 @@ using UnityEngine;
 public class Stealing : MonoBehaviour
 {
     [SerializeField] private bool isInLootingZone = false;
-    [SerializeField] private bool lootDone = false;
+    //private bool isThereLoot;
+    private Hut hut;
 
     [SerializeField] private float timer = 0;
     [SerializeField] private float lootTime = 4.0f;
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        hut = GetComponentInParent<Hut>();
+        Debug.Log(hut);
+        //isThereLoot = hut.GetIsThereLoot();
     }
 
     // Update is called once per frame
@@ -20,7 +24,8 @@ public class Stealing : MonoBehaviour
         if(timer >= lootTime)
         {
             //Debug.Log($"Loot is done {timer}");
-            lootDone = true;
+            hut.SetIsThereLoot(false);
+            //isThereLoot = true;
             isInLootingZone = false;
             timer = 0;
         }
@@ -30,7 +35,7 @@ public class Stealing : MonoBehaviour
     {
         //Debug.Log($"GameObject {other.gameObject.name} entered the range!");
         // Perform actions when an object enters the range
-        if (other.gameObject.CompareTag("LootRange"))
+        if (other.gameObject.CompareTag("Player"))
         {
             isInLootingZone = true;
             timer = 0;
@@ -40,10 +45,15 @@ public class Stealing : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (isInLootingZone && !lootDone)
+        //Debug.Log(hut);
+        if (isInLootingZone && hut.GetIsThereLoot())
         {
+            Debug.Log("hit me");
             Debug.Log(timer);
             timer += Time.deltaTime;
+        } else
+        {
+            isInLootingZone = false;
         }
     }
 
@@ -51,7 +61,7 @@ public class Stealing : MonoBehaviour
     {
         //Debug.Log($"GameObject {other.gameObject.name} exited the range!");
         // Perform actions when an object leaves the range
-        if (other.gameObject.CompareTag("LootRange"))
+        if (other.gameObject.CompareTag("Player"))
         {
             isInLootingZone = false;
             timer = 0;

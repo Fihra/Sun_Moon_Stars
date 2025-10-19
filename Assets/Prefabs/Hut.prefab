@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1836563543210628884}
   - component: {fileID: 2712372059291672771}
   - component: {fileID: 1946652508392782439}
+  - component: {fileID: 2634293007435065812}
   m_Layer: 0
   m_Name: Hut
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8608926201744470445}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.8, y: 2.6692579, z: 7.39}
   m_LocalScale: {x: 1.95, y: 1.03, z: 1}
   m_ConstrainProportionsScale: 0
@@ -109,6 +110,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2634293007435065812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8608926201744470445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e3aabfee5e0ef468ed8570caf44a7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootAmount: 0
+  isThereLoot: 1
+  minLootAmount: 10
+  maxLootAmount: 100
 --- !u!1 &8699962654810955356
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,6 +137,7 @@ GameObject:
   - component: {fileID: 3142737777919128717}
   - component: {fileID: 3492941622685047435}
   - component: {fileID: 284872595002960754}
+  - component: {fileID: 4469825473634664845}
   m_Layer: 0
   m_Name: Stealing_Range
   m_TagString: LootRange
@@ -171,3 +189,18 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.46
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4469825473634664845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8699962654810955356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da68c78635c570040b92596ba76e5d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInLootingZone: 0
+  timer: 0
+  lootTime: 4
