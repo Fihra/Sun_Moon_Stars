@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using UnityEngine;
 
 [ExecuteAlways]
@@ -8,6 +9,21 @@ public class LightingManager : MonoBehaviour
     [SerializeField] private LightingPreset Preset;
     //Variables
     [SerializeField, Range(0, 24)] private float TimeOfDay;
+    private float startHour;
+    public bool DayTime;
+    public bool NightTime;
+
+    //Store the state of the last frame
+    private bool wasDayTimeLastFrame;
+
+    void Start()
+    {
+        // 18.0f is the exact start of night, so 19.0f makes it look fully night.
+        TimeOfDay = 19.0f;
+
+        //set the initial lighting 
+        UpdateLighting(TimeOfDay / 24f);
+    }
 
 
     private void Update()
@@ -21,11 +37,44 @@ public class LightingManager : MonoBehaviour
             TimeOfDay += Time.deltaTime;
             TimeOfDay %= 24; //Modulus to ensure always between 0-24
             UpdateLighting(TimeOfDay / 24f);
+
+        }
+        // Always update lighting, whether playing or editing
+        UpdateLighting(TimeOfDay / 24f);
+
+        // Logic to define DayTime 
+        if (TimeOfDay >= 6 && TimeOfDay < 18)
+        {
+            DayTime = true;
         }
         else
         {
-            UpdateLighting(TimeOfDay / 24f);
+            DayTime = false;
         }
+
+        // Set NightTime as the opposite of DayTime
+        NightTime = !DayTime;
+
+        if (Application.isPlaying)
+        {
+            // Checks if the current state is different from the last frame's state
+            if (DayTime != wasDayTimeLastFrame)
+            {
+                // Log only once when the state has flipped
+                if (DayTime)
+                {
+                    UnityEngine.Debug.Log("It is now DAYTIME!");
+                }
+                else
+                {
+                    UnityEngine.Debug.Log("It is now NIGHTTIME!");
+                }
+            }
+
+            // 3. Update the 'wasDayTimeLastFrame' variable for the NEXT frame's comparison
+            wasDayTimeLastFrame = DayTime;
+        }
+
     }
 
 
@@ -35,12 +84,13 @@ public class LightingManager : MonoBehaviour
         RenderSettings.ambientLight = Preset.AmbientColor.Evaluate(timePercent);
         RenderSettings.fogColor = Preset.FogColor.Evaluate(timePercent);
 
-        //If the directional light is set then rotate and set it's color, I actually rarely use the rotation because it casts tall shadows unless you clamp the value
+        if (DirectionalLight == null) return;
+        //If the directional light is set then rotate and set its color, I actually rarely use the rotation because it casts tall shadows unless you clamp the value
         if (DirectionalLight != null)
         {
             DirectionalLight.color = Preset.DirectionalColor.Evaluate(timePercent);
 
-            DirectionalLight.transform.localRotation = Quaternion.Euler(new Vector3((timePercent * 360f) - 90f, 170f, 0));
+            DirectionalLight.transform.localRotation = Quaternion.Euler(new Vector3((timePercent * 360f) - 90f, 270f, 0));
         }
 
     }
@@ -60,7 +110,7 @@ public class LightingManager : MonoBehaviour
         else
         {
             //Light[] lights = GameObject.FindObjectsByType(FindObjectsSortMode.None);
-            Light[] lights = GameObject.FindObjectsOfType<Light>();
+            Light[] lights = GameObject.FindObjectsByType<Light>(FindObjectsSortMode.None);
             foreach (Light light in lights)
             {
                 if (light.type == LightType.Directional)
