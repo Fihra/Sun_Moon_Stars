@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics;
 using UnityEngine;
 
@@ -10,11 +11,23 @@ public class LightingManager : MonoBehaviour
     //Variables
     [SerializeField, Range(0, 24)] private float TimeOfDay;
     private float startHour;
-    public bool DayTime;
     public bool NightTime;
 
     //Store the state of the last frame
     private bool wasDayTimeLastFrame;
+
+    public event Action<bool> OnDayTimeChanged;
+    private bool dayTime;
+
+    public bool DayTime
+    {
+        get => dayTime;
+        set
+        {
+            dayTime = value;
+            OnDayTimeChanged?.Invoke(dayTime);
+        }
+    }
 
     void Start()
     {
@@ -23,6 +36,7 @@ public class LightingManager : MonoBehaviour
 
         //set the initial lighting 
         UpdateLighting(TimeOfDay / 24f);
+
     }
 
 
@@ -62,7 +76,7 @@ public class LightingManager : MonoBehaviour
             {
                 // Log only once when the state has flipped
                 if (DayTime)
-                {
+                {                   
                     UnityEngine.Debug.Log("It is now DAYTIME!");
                 }
                 else
