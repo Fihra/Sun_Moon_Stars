@@ -9,12 +9,10 @@ public class Stealing : MonoBehaviour
     [SerializeField] private float timer = 0;
     [SerializeField] private float lootTime = 4.0f;
 
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         hut = GetComponentInParent<Hut>();
-        Debug.Log(hut);
         //isThereLoot = hut.GetIsThereLoot();
     }
 
@@ -26,8 +24,19 @@ public class Stealing : MonoBehaviour
             //Debug.Log($"Loot is done {timer}");
             hut.SetIsThereLoot(false);
             //isThereLoot = true;
+            
             isInLootingZone = false;
             timer = 0;
+            int loot = hut.GetLootAmount();
+            Debug.Log("my loot: " + loot);
+            if (loot < 0) return;
+            else
+            {
+                ScoreManager.Instance.AddToHeldLoot(loot);
+               
+                hut.EmptyOutLoot();
+            }
+
         }
     }
 
