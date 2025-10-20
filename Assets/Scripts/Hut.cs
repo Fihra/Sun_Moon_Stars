@@ -10,7 +10,7 @@ public class Hut : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        lootAmount = Random.Range(minLootAmount, maxLootAmount);
+        lootAmount = ResetLootAmount();
     }
 
     public int GetLootAmount()
@@ -26,6 +26,16 @@ public class Hut : MonoBehaviour
     public void SetIsThereLoot(bool lootCheck)
     {
         isThereLoot = lootCheck;
+    }
+
+    public void EmptyOutLoot()
+    {
+        lootAmount = 0;
+    }
+
+    public int ResetLootAmount()
+    {
+        return Random.Range(minLootAmount, maxLootAmount);
     }
 
     // Update is called once per frame
