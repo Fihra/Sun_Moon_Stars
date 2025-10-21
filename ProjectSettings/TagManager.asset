@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LootRange
   - HomeBase
+  - HidingSpot
   layers:
   - Default
   - TransparentFX
