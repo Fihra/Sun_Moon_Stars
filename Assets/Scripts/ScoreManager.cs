@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -98,16 +99,29 @@ public class ScoreManager : MonoBehaviour
         ChangeTextUI(ChangeText.changeHeld);
     }
 
-    public void RemoveFromHeldLoot(int incomingScore)
+    public void RemoveFromHeldLoot(float incomingNum)
     {
-        heldLoot -= incomingScore;
 
-        if(heldLoot < 0)
+        float tempLoot = heldLoot - incomingNum;
+        Debug.Log(tempLoot);
+        heldLoot = Mathf.FloorToInt(tempLoot);
+
+        if (heldLoot < 0)
         {
             ResetHeldLoot();
-            ChangeTextUI(ChangeText.changeHeld);
         }
+        ChangeTextUI(ChangeText.changeHeld);
     }
+
+    //private IEnumerator DecreaseLoot()
+    //{
+    //    while(true)
+    //    {
+    //        yield return new WaitForSeconds(1f);
+
+    //    }
+    //}
+
 
 
 }

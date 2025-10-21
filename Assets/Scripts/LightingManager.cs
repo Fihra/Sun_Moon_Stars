@@ -2,9 +2,14 @@ using System;
 using System.Diagnostics;
 using UnityEngine;
 
+public enum CurrentDay { Day, Night };
+
 [ExecuteAlways]
 public class LightingManager : MonoBehaviour
 {
+    public static LightingManager Instance { get; private set; }
+    public static CurrentDay currentDay = CurrentDay.Night;
+
     //Scene References
     [SerializeField] private Light DirectionalLight;
     [SerializeField] private LightingPreset Preset;
@@ -19,6 +24,21 @@ public class LightingManager : MonoBehaviour
     public event Action<bool> OnDayTimeChanged;
     private bool dayTime;
 
+    
+    
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
     public bool DayTime
     {
         get => dayTime;
@@ -27,6 +47,16 @@ public class LightingManager : MonoBehaviour
             dayTime = value;
             OnDayTimeChanged?.Invoke(dayTime);
         }
+    }
+
+    public CurrentDay GetCurrentDay()
+    {
+        return currentDay;
+    }
+
+    public void SetCurrentDay(CurrentDay newDay)
+    {
+        currentDay = newDay;
     }
 
     void Start()
@@ -60,10 +90,12 @@ public class LightingManager : MonoBehaviour
         if (TimeOfDay >= 6 && TimeOfDay < 18)
         {
             DayTime = true;
+            SetCurrentDay(CurrentDay.Day);
         }
         else
         {
             DayTime = false;
+            SetCurrentDay(CurrentDay.Night);
         }
 
         // Set NightTime as the opposite of DayTime
