@@ -29,6 +29,7 @@ public class HomeBase : MonoBehaviour
                 timer = 0;
                 inDropOffZone = false;
                 ScoreManager.Instance.AddToHomeLoot(ScoreManager.Instance.GetHeldLoot());
+                SFXManager.Instance.PlaySFX("dropOffLoot");
             }
         }
     }

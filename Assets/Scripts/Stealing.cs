@@ -9,6 +9,8 @@ public class Stealing : MonoBehaviour
     [SerializeField] private float timer = 0;
     [SerializeField] private float lootTime = 4.0f;
 
+    private bool hasPlayedLootSound = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -60,9 +62,16 @@ public class Stealing : MonoBehaviour
             Debug.Log("hit me");
             Debug.Log(timer);
             timer += Time.deltaTime;
+
+            if (!hasPlayedLootSound)
+            {
+                SFXManager.Instance.PlaySFX("looting");
+                hasPlayedLootSound = true;
+            }
         } else
         {
             isInLootingZone = false;
+            hasPlayedLootSound = false;
         }
     }
 

@@ -114,6 +114,7 @@ public class LightingManager : MonoBehaviour
                     dayCounter++;
                     ScoreManager.Instance.ChangeTextUI(ScoreManager.ChangeText.changeDay, $"Day: {dayCounter}");
                     UnityEngine.Debug.Log("It is now DAYTIME!");
+                    SFXManager.Instance.PlaySFX("daySFXCue");
                     Hut[] allHuts = FindObjectsByType<Hut>(FindObjectsSortMode.None);
                     foreach(Hut hut in allHuts)
                     {
@@ -125,6 +126,7 @@ public class LightingManager : MonoBehaviour
                     nightCounter++;
                     ScoreManager.Instance.ChangeTextUI(ScoreManager.ChangeText.changeNight, $"Night: {nightCounter}");
                     UnityEngine.Debug.Log("It is now NIGHTTIME!");
+                    SFXManager.Instance.PlaySFX("nightSFXCue");
                     Hut[] allHuts = FindObjectsByType<Hut>(FindObjectsSortMode.None);
                     foreach (Hut hut in allHuts)
                     {
