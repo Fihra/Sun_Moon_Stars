@@ -34,8 +34,8 @@ public class AgueoAnimation : MonoBehaviour
 
         if (animComponent != null)
         {
-            if (animComponent[animIdle] != null)
-                animComponent[animIdle].wrapMode = WrapMode.Loop;
+           // if (animComponent[animIdle] != null)
+              //  animComponent[animIdle].wrapMode = WrapMode.Loop;
         }
 
     }
@@ -61,10 +61,13 @@ void Update()
             // 2. Queue the 'Idle' loop to start AFTER 'AgueoIn' finishes
             animComponent.CrossFadeQueued(animIdle, fadeTime, QueueMode.CompleteOthers);
 
-      
-        }
+              }
         // Ensure the NightTime transition logic doesn't interfere with the DayTime loop
+        else if (lightingManager.NightTime)
+        {
 
+
+        }
     }
 
 
