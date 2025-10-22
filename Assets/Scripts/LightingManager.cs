@@ -10,6 +10,9 @@ public class LightingManager : MonoBehaviour
     public static LightingManager Instance { get; private set; }
     public static CurrentDay currentDay = CurrentDay.Night;
 
+    public static int dayCounter = 0;
+    public static int nightCounter = 1;
+
     //Scene References
     [SerializeField] private Light DirectionalLight;
     [SerializeField] private LightingPreset Preset;
@@ -24,8 +27,6 @@ public class LightingManager : MonoBehaviour
     public event Action<bool> OnDayTimeChanged;
     private bool dayTime;
 
-    
-    
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -66,7 +67,8 @@ public class LightingManager : MonoBehaviour
 
         //set the initial lighting 
         UpdateLighting(TimeOfDay / 24f);
-
+        ScoreManager.Instance.ChangeTextUI(ScoreManager.ChangeText.changeDay, $"Day: {dayCounter}");
+        ScoreManager.Instance.ChangeTextUI(ScoreManager.ChangeText.changeNight, $"Night: {nightCounter}");
     }
 
 
@@ -108,12 +110,26 @@ public class LightingManager : MonoBehaviour
             {
                 // Log only once when the state has flipped
                 if (DayTime)
-                {                   
+                {
+                    dayCounter++;
+                    ScoreManager.Instance.ChangeTextUI(ScoreManager.ChangeText.changeDay, $"Day: {dayCounter}");
                     UnityEngine.Debug.Log("It is now DAYTIME!");
+                    Hut[] allHuts = FindObjectsByType<Hut>(FindObjectsSortMode.None);
+                    foreach(Hut hut in allHuts)
+                    {
+                        hut.NewLoot();
+                    }
                 }
                 else
                 {
+                    nightCounter++;
+                    ScoreManager.Instance.ChangeTextUI(ScoreManager.ChangeText.changeNight, $"Night: {nightCounter}");
                     UnityEngine.Debug.Log("It is now NIGHTTIME!");
+                    Hut[] allHuts = FindObjectsByType<Hut>(FindObjectsSortMode.None);
+                    foreach (Hut hut in allHuts)
+                    {
+                        hut.NewLoot();
+                    }
                 }
             }
 

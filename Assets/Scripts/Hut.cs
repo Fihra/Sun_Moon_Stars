@@ -38,9 +38,15 @@ public class Hut : MonoBehaviour
         return Random.Range(minLootAmount, maxLootAmount);
     }
 
+    public void NewLoot()
+    {
+        isThereLoot = true;
+        lootAmount = ResetLootAmount();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

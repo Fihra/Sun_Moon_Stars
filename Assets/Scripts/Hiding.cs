@@ -50,8 +50,6 @@ public class Hiding : MonoBehaviour
             timer = 0;
         }
 
-        //Debug.Log("Timer: " + timer);
-
         if (!safety)
         {
             

@@ -113,15 +113,4 @@ public class ScoreManager : MonoBehaviour
         ChangeTextUI(ChangeText.changeHeld);
     }
 
-    //private IEnumerator DecreaseLoot()
-    //{
-    //    while(true)
-    //    {
-    //        yield return new WaitForSeconds(1f);
-
-    //    }
-    //}
-
-
-
 }
