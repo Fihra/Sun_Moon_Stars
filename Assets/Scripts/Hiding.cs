@@ -20,7 +20,12 @@ public class Hiding : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        
+        if (other.gameObject.CompareTag("HidingSpot") || other.gameObject.CompareTag("LootRange"))
+        {
+            Debug.Log("Safe");
+            timer = 0;
+            safety = true;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
