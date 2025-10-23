@@ -8,6 +8,11 @@ public class Hiding : MonoBehaviour
     private bool safety = false;
     LightingManager currentDay;
 
+    public bool GetSafety()
+    {
+        return safety;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("HidingSpot") || other.gameObject.CompareTag("LootRange"))
@@ -15,6 +20,7 @@ public class Hiding : MonoBehaviour
             Debug.Log("Safe");
             timer = 0;
             safety = true;
+            MusicManager.Instance.SafetyZoneFilter();
         }
     }
 
@@ -33,6 +39,7 @@ public class Hiding : MonoBehaviour
         {
             Debug.Log("Not Safe");
             safety = false;
+            MusicManager.Instance.NotSafetyZoneFilter();
         }
     }
 
