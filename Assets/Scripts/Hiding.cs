@@ -15,7 +15,7 @@ public class Hiding : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("HidingSpot") || other.gameObject.CompareTag("LootRange"))
+        if(other.gameObject.CompareTag("HidingSpot") || other.gameObject.CompareTag("LootRange") || other.gameObject.CompareTag("HomeBase"))
         {
             Debug.Log("Safe");
             timer = 0;
@@ -26,7 +26,7 @@ public class Hiding : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("HidingSpot") || other.gameObject.CompareTag("LootRange"))
+        if (other.gameObject.CompareTag("HidingSpot") || other.gameObject.CompareTag("LootRange") || other.gameObject.CompareTag("HomeBase"))
         {
             Debug.Log("Safe");
             timer = 0;
@@ -35,7 +35,7 @@ public class Hiding : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("HidingSpot") || other.gameObject.CompareTag("LootRange"))
+        if (other.gameObject.CompareTag("HidingSpot") || other.gameObject.CompareTag("LootRange") || other.gameObject.CompareTag("HomeBase"))
         {
             Debug.Log("Not Safe");
             safety = false;
