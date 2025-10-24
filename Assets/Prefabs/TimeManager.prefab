@@ -39,11 +39,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 490181239515757808}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8bf22236e8a986f4ebce08e77017153e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DirectionalLight: {fileID: 0}
   Preset: {fileID: 11400000, guid: f7de2f5b8bafaf24b83d7c5b9b7b6c8a, type: 2}
-  TimeOfDay: 0
+  TimeOfDay: 19
+  NightTime: 1
