@@ -8,11 +8,12 @@ public class HomeBase : MonoBehaviour
     [SerializeField] private float dropOffTime = 5.0f;
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log($"GameObject {other.gameObject.name} entered the range!");
+        
         // Perform actions when an object enters the range
         if (other.gameObject.CompareTag("Player"))
         {
             inDropOffZone = true;
+            Debug.Log($"GameObject {other.gameObject.name} entered the range!");
         }
 
     }
