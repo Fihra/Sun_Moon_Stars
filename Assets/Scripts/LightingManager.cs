@@ -28,6 +28,8 @@ public class LightingManager : MonoBehaviour
     public event Action<bool> OnDayTimeChanged;
     private bool dayTime;
 
+    public GameObject sunny;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -99,11 +101,15 @@ public class LightingManager : MonoBehaviour
         {
             DayTime = true;
             SetCurrentDay(CurrentDay.Day);
+            sunny.SetActive(true);
+            sunny.GetComponent<MeshRenderer>().enabled = true;
         }
         else
         {
             DayTime = false;
             SetCurrentDay(CurrentDay.Night);
+            sunny.SetActive(false);
+            sunny.GetComponent<MeshRenderer>().enabled = false;
         }
 
         // Set NightTime as the opposite of DayTime
