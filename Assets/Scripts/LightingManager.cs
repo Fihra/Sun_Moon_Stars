@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum CurrentDay { Day, Night };
 
@@ -74,6 +75,11 @@ public class LightingManager : MonoBehaviour
 
     private void Update()
     {
+        if(nightCounter >= 4)
+        {
+            SceneManager.LoadScene("GameWin");
+        }
+
         if (Preset == null)
             return;
 
