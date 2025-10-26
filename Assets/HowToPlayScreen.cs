@@ -8,6 +8,11 @@ public class HowToPlayScreen : MonoBehaviour
         SceneManager.LoadSceneAsync(2);
     }
 
+    public void MainMenu()
+    {
+        SceneManager.LoadSceneAsync(0);
+    }
+
     public void QuitGame()
     {
         Application.Quit();
