@@ -1276,6 +1276,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6986405331456557036, guid: 6b0f9364dcb29dd4087ff59ec00e4e66, type: 3}
   m_PrefabInstance: {fileID: 596923366}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &684231569 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 430951914230519957, guid: f4081a7d70769a747b1e1ac515546465, type: 3}
+  m_PrefabInstance: {fileID: 1583764957}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &819057996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,6 +1539,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4957605393579145647, guid: 4f46098734d87e24490aef9267915ad2, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7894f82ed5f54544a806a1ed596d5642, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2630,13 +2639,30 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 221205201497835227, guid: f4081a7d70769a747b1e1ac515546465, type: 3}
       insertIndex: -1
       addedObject: {fileID: 947358205}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 430951914230519957, guid: f4081a7d70769a747b1e1ac515546465, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1583764966}
   m_SourcePrefab: {fileID: 100100000, guid: f4081a7d70769a747b1e1ac515546465, type: 3}
 --- !u!4 &1583764958 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 221205201497835227, guid: f4081a7d70769a747b1e1ac515546465, type: 3}
   m_PrefabInstance: {fileID: 1583764957}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1583764966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684231569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0123d6f430f281f48ad7987be0bd9272, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  otherInputHandler: {fileID: 0}
+  thisAnimator: {fileID: 0}
 --- !u!1 &1792959382
 GameObject:
   m_ObjectHideFlags: 0
