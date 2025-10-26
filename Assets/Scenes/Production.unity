@@ -935,6 +935,50 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe11675523b33464bb3588e263aaad2f, type: 3}
+--- !u!114 &775371501 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 196972522702415903, guid: fe11675523b33464bb3588e263aaad2f, type: 3}
+  m_PrefabInstance: {fileID: 775371500}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &775371502 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9014705616096997281, guid: fe11675523b33464bb3588e263aaad2f, type: 3}
+  m_PrefabInstance: {fileID: 775371500}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &775371503 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 634449152658139409, guid: fe11675523b33464bb3588e263aaad2f, type: 3}
+  m_PrefabInstance: {fileID: 775371500}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &775371504 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6566683320700107283, guid: fe11675523b33464bb3588e263aaad2f, type: 3}
+  m_PrefabInstance: {fileID: 775371500}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &778965869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1378,19 +1422,19 @@ PrefabInstance:
     - target: {fileID: 2487890251986879279, guid: 04067f64c3febff43a3b2ae791fa2aba, type: 3}
       propertyPath: dayText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 775371502}
     - target: {fileID: 2487890251986879279, guid: 04067f64c3febff43a3b2ae791fa2aba, type: 3}
       propertyPath: heldText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 775371503}
     - target: {fileID: 2487890251986879279, guid: 04067f64c3febff43a3b2ae791fa2aba, type: 3}
       propertyPath: homeText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 775371504}
     - target: {fileID: 2487890251986879279, guid: 04067f64c3febff43a3b2ae791fa2aba, type: 3}
       propertyPath: nightText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 775371501}
     - target: {fileID: 2723020027207956671, guid: 04067f64c3febff43a3b2ae791fa2aba, type: 3}
       propertyPath: m_Name
       value: UIManager
