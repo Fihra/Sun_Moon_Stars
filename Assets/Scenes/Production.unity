@@ -60816,6 +60816,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0cdcb25cf11d22f4a8b7a917ec8c1164, type: 3}
   m_PrefabInstance: {fileID: 667701877}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &667714191 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6246150898284719790, guid: d5b40a23a50aefe4aaa4fbcdc70a80c4, type: 3}
+  m_PrefabInstance: {fileID: 1327134246}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &668712562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -98107,6 +98112,10 @@ PrefabInstance:
       value: TimeManager
       objectReference: {fileID: 0}
     - target: {fileID: 5780776739128362267, guid: e81ea728fe8d1bd4597d92eec1c309e2, type: 3}
+      propertyPath: sunny
+      value: 
+      objectReference: {fileID: 667714191}
+    - target: {fileID: 5780776739128362267, guid: e81ea728fe8d1bd4597d92eec1c309e2, type: 3}
       propertyPath: DirectionalLight
       value: 
       objectReference: {fileID: 1271809933}
@@ -121240,6 +121249,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1771895872496575890, guid: d5b40a23a50aefe4aaa4fbcdc70a80c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2127683538364716490, guid: d5b40a23a50aefe4aaa4fbcdc70a80c4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4831183171820342204, guid: d5b40a23a50aefe4aaa4fbcdc70a80c4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246150898284719790, guid: d5b40a23a50aefe4aaa4fbcdc70a80c4, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
