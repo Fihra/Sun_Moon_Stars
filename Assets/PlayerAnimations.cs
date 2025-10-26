@@ -3,32 +3,27 @@ using UnityEngine;
 
 public class PlayerAnimations : MonoBehaviour
 {
-    public InputHandler otherInputHandler; 
+    public Animator thisAnimator;
+    InputHandler getMovement; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-         otherInputHandler = GetComponent<InputHandler>();
+        thisAnimator = transform.Find("HumanMale_Character_Free").GetComponent<Animator>();
+        getMovement = GetComponent<InputHandler>();
     }
 
-    [SerializeField] protected Animator thisAnimator;
-    protected Vector3 oldPos = Vector3.zero;
-    protected Vector3 deltaPos = Vector3.zero;
-
-    public void SetWalking(bool val)
+    private void Update()
     {
-        thisAnimator.SetBool("isWalking", val);
-    }
-
-    protected void DeltaMovement()
-    {
-        deltaPos = transform.position - oldPos;
-
-        if (deltaPos.sqrMagnitude > .001f * Time.deltaTime)
-            SetWalking(true);
-        else
-            SetWalking(false);
-
-        oldPos = transform.position;
+        if(thisAnimator != null)
+        {
+            if(getMovement.GetInputValues() != Vector2.zero)
+            {
+                thisAnimator.SetBool("isMoving", true);
+            } else
+            {
+                thisAnimator.SetBool("isMoving", false);
+            }
+        }
     }
 }

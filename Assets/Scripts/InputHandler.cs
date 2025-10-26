@@ -7,6 +7,11 @@ public class InputHandler : MonoBehaviour
     public Vector2 InputVector { get; private set; }
 
     public Vector3 MousePosition { get; private set; }
+
+    public Vector2 GetInputValues()
+    {
+        return InputVector;
+    }
     // Update is called once per frame
     void Update()
     {
